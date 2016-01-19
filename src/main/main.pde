@@ -16,63 +16,11 @@ void setup(){
   pg = createGraphics(displayWidth, displayHeight);
 }
 
-class Robot {
-  float _r = 50;          //radius auf 50 pixel
-  int _vr,_vl;            //geschwindigkeit der raeder
-  PVector p = new PVector(px,py);  //neuer vector erstellt
-  void drive (int vl,int vr){      //drive funktion erstellt
-    _vr = vr;                      
-    _vl = vl;                        //geschwindigkeiten in funktion der eigenschaft geschwindigkeit angepasst
-    rx = rx + cos(alpha*PI/180.0) * (_vr/100.0 + _vl/100.0)/2.0;  //neue koordinaten fuer roboter beim fahren berechnen: je nach ausrichtung unterschiedlich weit in x-richtung (cos)(gl;eiches fuer y - sin);
-    ry = ry - sin(alpha*PI/180.0) * (_vr/100.0 + _vl/100.0)/2.0;  // geschwindigkeit ist arithmetisches mittel aus radgeschwindigkeiten
-    alpha = alpha + (_vr -_vl)/(_r*3.6);                    //neuer winkel zum drehen erforderlich --> differenz der Geschwindigkeiten * faktor / faktor = ?
-   }
-}
 
-class Objects {
-  int _form;
-  ArrayList<PVector> punkte = new ArrayList<PVector> ();
-  int click = 0;
-  
-  void add(int x,int y){
-    PVector p = new PVector(x,y);
-    punkte.add(p);
-  }
-  void drawrect(){
-    anzahl = punkte.size();    
-    if (mousePressed && click == 0){
-    objects.add(mouseX,mouseY);
-    click = 1;
-    }
-    if (!mousePressed) {click = 0;}
-    if (anzahl == 2){
-    pg.beginDraw();
-    pg.rectMode(CORNERS);  
-    pg.rect(punkte.get(0).x,punkte.get(0).y,punkte.get(1).x,punkte.get(1).y);
-    pg.endDraw();
-    punkte.remove(0);
-    punkte.remove(0);
-    }
-  }
 
-  void drawellipse(){
-    anzahl = punkte.size();   
-    if (mousePressed && click == 0){
-    objects.add(mouseX,mouseY);
-    click = 1;
-    }
-    if (!mousePressed) {click = 0;}
-    if (anzahl == 2){
-    pg.beginDraw();
-    pg.ellipseMode(CORNERS);
-    pg.ellipse(punkte.get(0).x,punkte.get(0).y,punkte.get(1).x,punkte.get(1).y);
-    pg.endDraw();
-    println(punkte.get(0).x,punkte.get(0).y,punkte.get(1).x,punkte.get(1).y);
-    punkte.remove(0);
-    punkte.remove(0);
-    }
-  }
-}
+
+
+
 
 void proof(){
 for (int i = 0; i < 360;  i = i+1){   proofx = round(rx+(robot._r+1)*cos(alpha*PI/180.0));  
