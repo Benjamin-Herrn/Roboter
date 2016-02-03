@@ -1,3 +1,4 @@
+//by Bothe Niklas and Herrn Benjamin
 class Robot {
   float _r = 20;          //radius auf 50 pixel
   int _vr,_vl;            //geschwindigkeit der raeder

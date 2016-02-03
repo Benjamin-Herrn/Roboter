@@ -1,3 +1,4 @@
+//by Bothe Niklas and Herrn Benjamin
 float alpha = 90;         //winkel am manfang auf 90grad gesetzt(senkrecht)
 float rx,ry;              //mitte koordinaten
 float px,py;              //vectorwerte
@@ -24,7 +25,7 @@ void draw(){
  
   if (keyPressed){
     if (key == 'w') {                      //drive funktion mit geschwindigkeit aufgerufen
-      robot.drive(20,30);
+      robot.drive(30,30);
     }  
   }   
     //if (rx-robot._r <= 0){rx=0+robot._r;}                //wenn roboter an wand faehrt soll er nicht weiter fahren

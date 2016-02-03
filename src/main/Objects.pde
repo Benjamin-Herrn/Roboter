@@ -1,3 +1,4 @@
+//by Bothe Niklas and Herrn Benjamin
 class Objects {
   PImage img;            //image erstellt
   void ShowObjects (){
