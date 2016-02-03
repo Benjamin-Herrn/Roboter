@@ -8,7 +8,7 @@ int lock = 0;             //variable um punkte eines objektes immer paarweise zu
 int proofx,proofy;
 
 void setup(){
-  size(1000,1000);
+  size(600,600);
   frameRate(100);
   ellipseMode(CENTER);
   background(200);
@@ -18,8 +18,7 @@ void setup(){
 Robot robot = new Robot();                    //neue instanz der klasse erzeugt
 Objects objects = new Objects();
 void draw(){
- // println(get(mouseX,mouseY)==color(0,0,0));
-  println(robot.kollision);
+  println(alpha);
   background(200);
   objects.ShowObjects();
   if (keyPressed){if (key == ' '){show = 1;}}      //wenn klick dann soll roboter gezeigt werden    
@@ -41,7 +40,7 @@ void draw(){
  
     if (keyPressed){
       if (key == 'w') {                      //drive funktion mit geschwindigkeit aufgerufen
-        robot.drive(100,0);
+        robot.drive(20,30);
       }  
     }
     

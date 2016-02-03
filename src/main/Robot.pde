@@ -1,5 +1,5 @@
 class Robot {
-  float _r = 50;          //radius auf 50 pixel
+  float _r = 20;          //radius auf 50 pixel
   int _vr,_vl;            //geschwindigkeit der raeder
   boolean kollision = false;
   PVector p = new PVector(px,py);  //neuer vector erstellt
@@ -7,7 +7,7 @@ class Robot {
     _vr = vr;                      
     _vl = vl;                        //geschwindigkeiten in funktion der eigenschaft geschwindigkeit angepasst
     kollision = false;
-    for (int i = 0; i < 360;  i = i+3){
+    for (int i = round(alpha) - 90; i < round(alpha) + 90;  i = i+3){
       proofx = round(rx+(robot._r+1)*cos(i*PI/180.0));  
       proofy = round(ry-(robot._r+1)*sin(i*PI/180.0));     
       if (get(proofx,proofy) == color(0,0,0)){
@@ -20,4 +20,4 @@ class Robot {
      }
     alpha = alpha + (_vr -_vl)/(_r*3.6);      //neuer winkel zum drehen erforderlich --> differenz der Geschwindigkeiten * faktor / faktor = ?
   }
-}
+}//hi
