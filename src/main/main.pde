@@ -31,8 +31,8 @@ void draw(){
   //if (ry+robot._r >= height){ry=height-robot._r;}
   robot.Kollision();
   if (robot.kollision == false){
-    robot.drive(40,60);
+    robot.drive(400,600);
   } else {
-    robot.drive(-40,40);
+    robot.drive(-400,400);
   }
 }

@@ -45,6 +45,7 @@ class Robot {
   }
 
   void path(){
+    image(pathgraphic,0,0);
    if (get(round(rx),round(ry)) == color(255,255,255)){
      pathgraphic.beginDraw(); 
      pathgraphic.fill(170,255,70);
