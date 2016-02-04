@@ -11,14 +11,15 @@ class Robot {
     rx = rx + cos(alpha*PI/180.0) * (_vr/100.0 + _vl/100.0)/2.0;          //neue koordinaten fuer roboter beim fahren berechnen: je nach ausrichtung unterschiedlich weit in x-richtung (cos)(gl;eiches fuer y - sin);
     ry = ry - sin(alpha*PI/180.0) * (_vr/100.0 + _vl/100.0)/2.0;          // geschwindigkeit ist arithmetisches mittel aus radgeschwindigkeiten                                                                                    
     alpha = alpha + (_vr -_vl)/(_r*3.6);                                  //neuer winkel zum drehen erforderlich --> differenz der Geschwindigkeiten * faktor / faktor = ?
-  }                                                                       
+    path();  
+}                                                                       
                                                                           
   boolean Kollision(){                                                    //
     kollision =false;                                                     //
     for (int i = round(alpha) - 90; i < round(alpha) + 90;  i = i+1){     //
       proofx = round(rx+(robot._r+1)*cos(i*PI/180.0));                    //
       proofy = round(ry-(robot._r+1)*sin(i*PI/180.0));                    //
-      if (get(proofx,proofy) == color(0,0,0)){                            //
+      if (objects.img.get(proofx,proofy) == color(0,0,0)){                            //
         kollision = true;                                                 //
       }                                                                   
     }                                                                     
@@ -43,4 +44,25 @@ class Robot {
     line(rx,ry,sx,sy);                                                    //linie die richtung anzeigt
   }
 
-}
+  void path(){
+   if (get(round(rx),round(ry)) == color(255,255,255)){
+     pathgraphic.beginDraw(); 
+     pathgraphic.fill(170,255,70);
+     pathgraphic.endDraw();
+   }  
+   if (get(round(rx),round(ry)) == color(170,255,70)){
+     pathgraphic.beginDraw();
+     pathgraphic.fill(138,221,70);
+     pathgraphic.endDraw();
+   }
+   if (get(round(rx),round(ry)) == color(138,221,70)){
+     pathgraphic.beginDraw();  
+     pathgraphic.fill(51,204,51);
+     pathgraphic.endDraw();
+   }
+   pathgraphic.beginDraw();
+   pathgraphic.noStroke();
+   pathgraphic.ellipse(rx,ry,3,3);
+   pathgraphic.endDraw();
+   image(pathgraphic,0,0);
+ }}

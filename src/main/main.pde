@@ -5,12 +5,14 @@ float px,py;              //vectorwerte
 float sx,sy;              //spitzen koordinaten
 int show = 0;             // show variable eingefuehrt (damit er erst beim kliocken erscheint)
 int proofx,proofy;
+PGraphics pathgraphic;
 
 void setup(){
   size(600,600);
-  frameRate(100);
+  frameRate(500);
   ellipseMode(CENTER);
   background(200);
+  pathgraphic = createGraphics(600,600);
 }
 
 
