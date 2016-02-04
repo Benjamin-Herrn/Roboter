@@ -21,16 +21,16 @@ void draw(){
   objects.ShowObjects();
   if (keyPressed){if (key == ' '){show = 1;}}      //wenn klick dann soll roboter gezeigt werden    
   if (show == 1){
-    robot.show();
- 
-  if (keyPressed){
-    if (key == 'w') {                      //drive funktion mit geschwindigkeit aufgerufen
-      robot.drive(30,30);
-    }  
+  robot.show();
   }   
-    //if (rx-robot._r <= 0){rx=0+robot._r;}                //wenn roboter an wand faehrt soll er nicht weiter fahren
-    //if (rx+robot._r >= width){rx=width-robot._r;}
-    //if (ry-robot._r <= 0){ry=0+robot._r;}
-    //if (ry+robot._r >= height){ry=height-robot._r;}
+  //if (rx-robot._r <= 0){rx=0+robot._r;}                //wenn roboter an wand faehrt soll er nicht weiter fahren
+  //if (rx+robot._r >= width){rx=width-robot._r;}
+  //if (ry-robot._r <= 0){ry=0+robot._r;}
+  //if (ry+robot._r >= height){ry=height-robot._r;}
+  robot.Kollision();
+  if (robot.kollision == false){
+    robot.drive(40,60);
+  } else {
+    robot.drive(-40,40);
   }
 }
